@@ -1,1 +1,204 @@
-# intricakes
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:3000/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" type="text/css" class="__meteor-css__" href="./Intricakes_files/merged-stylesheets.css">
+
+<title>Intricakes</title>
+	<link href="./Intricakes_files/css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="./Intricakes_files/jquery.min.js"></script>
+	<script src="./Intricakes_files/jquery.mousewheel.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<meta name="viewport" content="height=2000, initial-scale=1">
+	<script type="text/javascript" src="./Intricakes_files/velocity.min.js"></script>
+	
+<script type="text/javascript">
+
+function handle(delta) {
+        if (delta <0)
+                ScrollSmoothly(10,10,'right');
+        else if (delta >0)
+                ScrollSmoothly(10,10,'left');
+}
+ 
+function wheel(event){
+        var delta = 0;
+        if (!event) 
+                event = window.event;
+        if (event.wheelDelta) {
+                delta = event.wheelDelta/120;
+                if (window.opera)
+                        delta = -delta;
+        } else if (event.detail) {
+                delta = -event.detail/3;
+        }
+        if (delta)
+                handle(delta);
+        if (event.preventDefault)
+                event.preventDefault();
+	event.returnValue = false;
+}
+
+var repeatCount = 0;
+
+function ScrollSmoothly(scrollPos,repeatTimes, direction) {
+	if(repeatCount < repeatTimes)
+		if(direction == 'right')
+			window.scrollBy(20,0);
+		else
+			window.scrollBy(-20,0);
+	else
+	{
+		repeatCount = 0;
+		clearTimeout(cTimeout);
+		return;
+	}
+	repeatCount++;
+	cTimeout = setTimeout("ScrollSmoothly('" + scrollPos + "','"+ repeatTimes +"','"+ direction +"')",10);
+}
+ 
+/* Initialization code. */
+if (window.addEventListener)
+        window.addEventListener('DOMMouseScroll', wheel, false);
+window.onmousewheel = document.onmousewheel = wheel;
+
+$( document ).ready(function() {
+
+	var imgHeight = document.documentElement.clientHeight - 199;
+	$("#gallery img").css("height", imgHeight + "px" );
+	$("#dessertBar img").css("height", imgHeight + "px" );
+	
+	$("#desertTables button").click(function(event){
+		event.preventDefault();
+		jQuery("#intricakeTop").fadeOut("1000",function(){
+			jQuery("#intricakeTop").removeClass("animate");
+			jQuery("#aboutIntricake").fadeOut("1000");
+			jQuery("#gallery").fadeOut("1000",function(){
+				jQuery("#dessertBar").fadeIn("500");
+			});
+		});
+	});
+	
+	$("#cakeTables button").click(function(event){
+		event.preventDefault();
+		jQuery("#intricakeTop").fadeOut("1000",function(){
+			jQuery("#intricakeTop").removeClass("animate");
+			jQuery("#aboutIntricake").fadeOut("1000",function(){
+				jQuery("#dessertBar").fadeOut("1000",function(){
+					jQuery("#gallery").fadeIn("500");
+				});
+			});
+		});
+	});
+  
+	$("#aboutLink button").click(function(event){
+		event.preventDefault();
+		jQuery("#intricakeTop").fadeOut("1000",function(){
+			jQuery("#intricakeTop").removeClass("animate");
+			jQuery("#dessertBar").fadeOut("1000",function(){
+				jQuery("#gallery").fadeOut("1000",function(){
+					jQuery("#aboutIntricake").fadeIn("500");
+				});
+			});
+		});
+	});
+	
+	$("#contactLink button").click(function(event){
+		event.preventDefault();
+		jQuery("#dessertBar").fadeOut("1000",function(){
+			jQuery("#gallery").fadeOut("1000",function(){
+				jQuery("#aboutIntricake").fadeOut("1000",function(){
+					jQuery("#intricakeTop").fadeIn("1000",function(){
+						jQuery("#intricakeTop").addClass("animate");
+					});
+				});
+			});
+		});
+	});
+	  
+});
+
+$( window ).resize(function() {
+  var imgHeight = document.documentElement.clientHeight - 199;
+  $("#gallery img").css("height", imgHeight + "px" );
+  $("#dessertBar img").css("height", imgHeight + "px" );
+  
+});
+
+</script>
+</head>
+<body>
+
+
+
+<div id="info">
+		<h1>Intricakes</h1>
+		<table style="margin: 0 auto;">
+			<tr>
+				<td id="aboutLink"><button>About</button></td>
+				<td id="cakeTables"><button>Cake Portfolio</button></td>
+				<td><img src="logo.png" id="logo"></td>
+				<td id="desertTables"><button>Dessert Tables</button></td>
+				<td id="contactLink"><button>Contact</button></td>
+			</tr>
+		</table>
+	</div>
+	<div id="social">
+		<a href="https://www.facebook.com/IntriCakes/"><i class="fa fa-facebook-square fa-lg"></i></a>
+		<a href="https://www.instagram.com/intricakes/"><i class="fa fa-instagram fa-lg"></i></a>
+	</div>
+	<div id="gallery">
+		<img src="./Intricakes_files/intri.jpg" style="height: 719px;">
+	</div>
+	<div id="dessertBar">
+		<img src="./Intricakes_files/intri2.jpg" style="height: 719px;">
+	</div>
+	<div id="aboutIntricake">
+		<div>
+			<img src="./Intricakes_files/jenny.jpg">
+		</div>
+		<p>Jenny flung the doors open and the cake rolled in. No words needed to be said. It was a beautiful cake. Simple yet elegant. Every detail meticulously crafted - Frosting carefully layered. Fondant as smooth as silk. A gleaming white three layered cake.</p>
+		<p>The bride’s face said everything - Eyes ready to burst and a smile that could brighten the night. Yes, this was it. There was nothing more uplifting than to make someone smile. But that was all just a dream.</p> 
+		<p>Jenny awoke from the dream in 2008. Was it just prophesy? No. In that instant, she drove to the nearest craft store and bought a cartful of baking supplies. Thirteen hours later, it was finished. A six inch fondant cake. Not as towering as the one she had dreamt, but it was a start. It was at that moment that Jenny realized the love she had for baking. She had to chase that dream.</p> 
+		<p>Jenny went on to pursue culinary school and received her Baking and Pastry Arts degree at Orange Coast College in Costa Mesa in 2012. Along with obtaining her degree in baking, she also worked side by side with several professional cake artists such as Christopher Garren’s (who is also a main artist on WE TV’s series “Amazing Wedding Cakes”).</p> 
+		<p>In 2015, Jenny decided it was time to finally turn her dreams into reality and opened up her own shop, IntriCakes and the rest is history.
+		</p>
+	</div>
+	<div id="intricakeTop" style="width: 100%; text-align: center; margin-top: 100px;">
+	<svg version="1.1" id="svg3293" sodipodi:docname="INTRICAKES LOGOgold.svg" inkscape:version="0.48.4 r9939" xmlns:svg="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:cc="http://creativecommons.org/ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1068px" height="672px" viewBox="178.5 80.5 1068 672" enable-background="new 178.5 80.5 1068 672" xml:space="preserve">
+	<sodipodi:namedview inkscape:window-height="706" inkscape:current-layer="svg3293" inkscape:window-width="1366" inkscape:window-maximized="1" inkscape:pageshadow="2" inkscape:pageopacity="0" inkscape:window-y="-8" inkscape:window-x="-8" guidetolerance="10" inkscape:cy="980.46669" inkscape:cx="864.08081" gridtolerance="10" inkscape:zoom="0.48" pagecolor="#ffffff" showgrid="false" borderopacity="1" objecttolerance="10" bordercolor="#666666" id="namedview3295">
+		</sodipodi:namedview>
+	<g>
+		<g>
+			<path class="bigSwirl" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M638.126,616.896
+				c-153.522,4.227-281.402-116.8-285.629-270.322c-2.53-91.881,69.904-168.416,161.784-170.946
+				c54.99-1.514,100.795,41.837,102.309,96.826c0.906,32.911-25.039,60.325-57.949,61.231c-19.697,0.542-36.104-14.985-36.646-34.682
+				c-0.325-11.788,8.969-21.608,20.757-21.932c7.055-0.194,12.932,5.368,13.126,12.423c0.116,4.222-3.212,7.74-7.435,7.856
+				c-2.527,0.07-4.632-1.923-4.702-4.45c-0.042-1.512,1.151-2.772,2.663-2.814"></path>
+			<path class="smallSwirl" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M416.753,584.673
+				c-25.62,27.071-68.334,28.247-95.405,2.627c-16.202-15.333-16.905-40.897-1.572-57.099c9.177-9.696,24.477-10.118,34.173-0.941
+				c5.803,5.492,6.055,14.649,0.563,20.452c-3.287,3.473-8.767,3.624-12.24,0.337c-2.079-1.967-2.169-5.247-0.202-7.326
+				c1.177-1.244,3.14-1.298,4.384-0.121c0.745,0.705,0.777,1.879,0.072,2.624c-0.422,0.446-1.125,0.465-1.57,0.043
+				c-0.267-0.252-0.278-0.673-0.026-0.94"></path>
+		</g>
+		<path class="bigSwirl" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M793.721,616.896
+			c153.521,4.227,281.402-116.8,285.629-270.322c2.53-91.881-69.904-168.416-161.784-170.946
+			c-54.99-1.514-100.795,41.837-102.309,96.826c-0.906,32.911,25.039,60.325,57.949,61.231c19.697,0.542,36.104-14.985,36.646-34.682
+			c0.325-11.788-8.969-21.608-20.757-21.932c-7.055-0.194-12.932,5.368-13.126,12.423c-0.116,4.222,3.212,7.74,7.435,7.856
+			c2.527,0.07,4.632-1.923,4.702-4.45c0.042-1.512-1.151-2.772-2.663-2.814"></path>
+		<path class="smallSwirl" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M1015.094,584.673
+			c25.62,27.071,68.334,28.247,95.405,2.627c16.201-15.333,16.905-40.897,1.572-57.099c-9.177-9.696-24.477-10.118-34.173-0.941
+			c-5.803,5.492-6.055,14.649-0.563,20.452c3.287,3.473,8.767,3.624,12.24,0.337c2.079-1.967,2.169-5.247,0.202-7.326
+			c-1.177-1.244-3.14-1.298-4.384-0.121c-0.745,0.705-0.777,1.879-0.072,2.624c0.422,0.446,1.125,0.465,1.57,0.043
+			c0.267-0.252,0.278-0.673,0.026-0.94"></path>
+		
+		<path class="linePath" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M266.538,660.5h332"></path>
+		<path class="linePath" fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M1154.538,660.5h-332"></path>
+		
+		<path id="snapSwirl" fill="none" stroke="#000000" stroke-width="1" stroke-miterlimit="10" d="M747.085,664.576
+			c-5.716,18.576,18.576,28.757,30.007,15.539c12.681-14.646,1.072-31.793-12.503-35.901c-35.008-9.288-56.977,32.15-87.52,41.259
+			c-15.718,4.823-35.365-7.859-29.471-26.792c6.787-22.148,41.617-16.075,34.472,7.144"></path>
+		<desc>Created with Snap</desc>
+	</g>
+	</svg>
+		<p style="margin-top: -375px; font-size: 2em;">Contact us at <a href="mailto:info@intricakes.com">info@intricakes.com</a> <br>or <br>call <a href="tel:7145949191">714-594-9191</a></p>
+	</div><img id="hzDownscaled" style="position: absolute; top: -10000px;"></body></html>
